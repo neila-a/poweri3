@@ -1,8 +1,0 @@
-/media/neila/MobileDisk/projects/i3exit/build/CMakeFiles/i3exit.dir
-/media/neila/MobileDisk/projects/i3exit/build/CMakeFiles/edit_cache.dir
-/media/neila/MobileDisk/projects/i3exit/build/CMakeFiles/rebuild_cache.dir
-/media/neila/MobileDisk/projects/i3exit/build/CMakeFiles/list_install_components.dir
-/media/neila/MobileDisk/projects/i3exit/build/CMakeFiles/install.dir
-/media/neila/MobileDisk/projects/i3exit/build/CMakeFiles/install/local.dir
-/media/neila/MobileDisk/projects/i3exit/build/CMakeFiles/install/strip.dir
-/media/neila/MobileDisk/projects/i3exit/build/CMakeFiles/i3exit_autogen.dir

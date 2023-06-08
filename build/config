@@ -1,4 +1,0 @@
-systemctl poweroff
-systemctl reboot
-i3-msg exit
-i3lock -c 1e9fff
