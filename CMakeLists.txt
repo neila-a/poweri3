@@ -21,6 +21,8 @@ set(PROJECT_SOURCES
         dialog.ui
         readConfig.h
         readConfig.cpp
+        exec.h
+        exec.cpp
         images.qrc
         ${TS_FILES}
 )

@@ -14,6 +14,8 @@ class Dialog : public QDialog
 public:
     Dialog(QWidget *parent = nullptr);
     ~Dialog();
+    void closeSlot();
+    void close();
 
 private slots:
     void on_lock_clicked();
@@ -27,4 +29,5 @@ private slots:
 private:
     Ui::Dialog *ui;
 };
+
 #endif // DIALOG_H

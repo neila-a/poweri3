@@ -1,7 +1,6 @@
 #include "dialog.h"
 #include "./ui_dialog.h"
-#include <stdlib.h>
-#include "readConfig.h"
+#include "exec.h"
 
 Dialog::Dialog(QWidget *parent)
     : QDialog(parent)
@@ -10,31 +9,27 @@ Dialog::Dialog(QWidget *parent)
     ui->setupUi(this);
 }
 
-Dialog::~Dialog()
-{
+Dialog::~Dialog() {
     delete ui;
 }
 
-void Dialog::on_lock_clicked()
-{
-    system(readConfig(3));
+void Dialog::on_lock_clicked() {
+    ::exec(3);
 }
 
 
-void Dialog::on_shutdown_clicked()
-{
-    system(readConfig(0));
+void Dialog::on_shutdown_clicked() {
+    ::exec(0);
 }
 
 
-void Dialog::on_logout_clicked()
-{
-    system(readConfig(2));
+void Dialog::on_logout_clicked() {
+    ::exec(2);
 }
 
 
 void Dialog::on_reboot_clicked()
 {
-    system(readConfig(1));
+    ::exec(1);
 }
 

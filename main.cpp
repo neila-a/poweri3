@@ -7,7 +7,6 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {
@@ -19,6 +18,6 @@ int main(int argc, char *argv[])
     }
     Dialog w;
     w.setWindowTitle("按Esc退出");
-    w.show();
+    w.showFullScreen();
     return a.exec();
 }
