@@ -1,7 +1,10 @@
 #include "readConfig.h"
 #include <QFile>
 #include <QTextStream>
-#include <iostream>
+#include <QDir>
+#include <QDebug>
+
+using namespace std;
 
 const char* readConfig(int line) {
     const char* defaultConfig[4] = {
@@ -16,31 +19,40 @@ const char* readConfig(int line) {
      * Logout
      * Lock
     */
-    QFile config("~/.config/i3exit");
+    QString configPath(QDir::homePath() + "/.config/poweri3");
+    QFile config(configPath);
     if (!config.exists()) {
-        cout << "[i3exit] Config not exists. Now creating." << endl;
-        bool isok = config.open(QIODevice::WriteOnly);
+        qWarning("[poweri3] Config not exists. Now creating.");
+        bool isok = config.open(QIODevice::WriteOnly | QIODevice::Text);
         if (isok == true) {
             QTextStream stream(&config);
-            stream << QString(defaultConfig[0]);
-            stream << QString(defaultConfig[1]);
-            stream << QString(defaultConfig[2]);
-            stream << QString(defaultConfig[3]);
+            stream << QString(defaultConfig[0]) << "\n";
+            stream << QString(defaultConfig[1]) << "\n";
+            stream << QString(defaultConfig[2]) << "\n";
+            stream << QString(defaultConfig[3]) << "\n";
         }
         config.close();
         return defaultConfig[line];
     } else {
-        cout << "[i3exit] Config exists. Now Reading." << endl;
+        qDebug("[poweri3] Config exists. Now Reading.");
         bool isok = config.open(QIODevice::ReadOnly);
         if(isok == true) {
             QTextStream stream(&config);
             //读取数据时 按照写入的顺序读取
-            QString data = stream.readLine(line);
+            int id = 0;
+            while (!stream.atEnd()) {
+                QString lineStr = stream.readLine();
+                if (line == id) {
+                    QByteArray arrayData = lineStr.toLatin1();
+                    const char* charData = arrayData.data();
+                    config.close();
+                    qDebug("[poweri3] Execute command: %s", charData);
+                    return charData;
+                }
+                id = id + 1;
+            }
             config.close();
-            QByteArray latin1 = data.toLatin1();
-            const char* charData = latin1.data();
-            cout << charData << endl;
-            return charData;
+            return defaultConfig[line];
         } else {
             config.close();
             return defaultConfig[line];
