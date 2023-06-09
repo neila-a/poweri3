@@ -6,24 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>339</width>
-    <height>30</height>
+    <width>438</width>
+    <height>74</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../../../../../home/neila/Pictures/关闭_爱给网_aigei_com_16x16.png</normaloff>../../../../../home/neila/Pictures/关闭_爱给网_aigei_com_16x16.png</iconset>
+   <iconset resource="images.qrc">
+    <normaloff>:/resources/resources/关闭_爱给网_aigei_com_16x16.png</normaloff>:/resources/resources/关闭_爱给网_aigei_com_16x16.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
   </property>
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>10</x>
      <y>0</y>
-     <width>340</width>
-     <height>28</height>
+     <width>416</width>
+     <height>72</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -58,6 +61,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>
